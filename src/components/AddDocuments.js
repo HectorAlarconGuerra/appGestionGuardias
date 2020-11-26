@@ -11,11 +11,12 @@ import moment from 'moment';
 
 import firestore from '@react-native-firebase/firestore';
 
-export default function AddDocuments() {
+export default function AddDocuments(props) {
+  const {user, setShowList} = props;
   const [formData, setFormData] = useState({});
   const [isDatePicketVisible, setIsDatePicketVisible] = useState(false);
   const [formError, setFormError] = useState({});
-  const ref = firestore().collection('documentos');
+  const ref = firestore().collection(user.uid);
 
   const hideDatePicker = () => {
     setIsDatePicketVisible(false);
@@ -50,7 +51,7 @@ export default function AddDocuments() {
       ref
         .add(data)
         .then(() => {
-          console.log('OK');
+          setShowList(true);
         })
         .catch(() => {
           setFormError({name: true, lastname: true, dateBirth: true});

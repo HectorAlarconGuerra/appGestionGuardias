@@ -8,6 +8,7 @@ import auth from '@react-native-firebase/auth';
 
 export default function App() {
   const [user, setUser] = useState(undefined);
+
   useEffect(() => {
     auth().onAuthStateChanged((response) => {
       setUser(response);
@@ -20,7 +21,7 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.background}>
-        {user ? <ListDocuments /> : <Auth />}
+        {user ? <ListDocuments user={user} /> : <Auth />}
       </SafeAreaView>
     </>
   );

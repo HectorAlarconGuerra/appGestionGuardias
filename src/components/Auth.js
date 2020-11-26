@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: '80%',
-    height: 200,
-    marginTop: 50,
-    marginBottom: 50,
+    height: 279,
+    marginTop: 20,
+    marginBottom: 20,
   },
 });
