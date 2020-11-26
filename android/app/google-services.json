@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "852456123995",
+    "firebase_url": "https://appgestionguardias.firebaseio.com",
+    "project_id": "appgestionguardias",
+    "storage_bucket": "appgestionguardias.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852456123995:android:65147b53b5056d53e1997e",
+        "android_client_info": {
+          "package_name": "com.appgestionguardias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852456123995-40e1ijadoil5tgvpr3iijkas2kv2jskp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appgestionguardias",
+            "certificate_hash": "f6c3f58293f8faa3b7904be3d065608e111e7e39"
+          }
+        },
+        {
+          "client_id": "852456123995-6via0r0joros16mntvogkpij3c3vouoo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAqVOJAA0jxpipdhghtMHoslq1b8SKEro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852456123995-6via0r0joros16mntvogkpij3c3vouoo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
