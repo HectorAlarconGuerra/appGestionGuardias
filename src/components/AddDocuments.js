@@ -12,7 +12,7 @@ import moment from 'moment';
 import firestore from '@react-native-firebase/firestore';
 
 export default function AddDocuments(props) {
-  const {user, setShowList} = props;
+  const {user, setShowList, setReloadData} = props;
   const [formData, setFormData] = useState({});
   const [isDatePicketVisible, setIsDatePicketVisible] = useState(false);
   const [formError, setFormError] = useState({});
@@ -51,6 +51,7 @@ export default function AddDocuments(props) {
       ref
         .add(data)
         .then(() => {
+          setReloadData(true);
           setShowList(true);
         })
         .catch(() => {
@@ -68,7 +69,7 @@ export default function AddDocuments(props) {
       <View style={styles.container}>
         <TextInput
           style={[styles.input, formError.name && {borderColor: '#940c0c'}]}
-          placeholder="Nombre"
+          placeholder="Nombre documento"
           placeholderTextColor="#969696"
           onChange={(e) => onChange(e, 'name')}
         />

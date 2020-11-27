@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: '80%',
-    height: 279,
+    height: 320,
     marginTop: 20,
     marginBottom: 20,
   },

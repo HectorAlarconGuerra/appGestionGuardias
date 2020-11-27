@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, View, ScrollView, Alert} from 'react-native';
 import moment from 'moment';
 import AddDocuments from './AddDocuments';
 import ActionBar from './ActionBar';
@@ -13,6 +13,7 @@ export default function ListDocuments(props) {
   const ref = firestore().collection(user.uid);
   const [document, setDocument] = useState([]);
   const [pastDocument, setPastDocument] = useState([]);
+  const [reloadData, setReloadData] = useState(false);
 
   //  console.log(document);
 
@@ -31,7 +32,8 @@ export default function ListDocuments(props) {
         });
         formatData(itemsArray);
       });
-  }, []);
+    setReloadData(false);
+  }, [reloadData]);
 
   const formatData = (items) => {
     const currentDate = moment().set({
@@ -64,19 +66,56 @@ export default function ListDocuments(props) {
     setPastDocument(pastDocumentTempArray);
   };
 
+  const deleteDocument = (document) => {
+    Alert.alert(
+      'Eliminar documento',
+      `Estás seguro de eliminar el documento ${document.name} ${document.lastname}`,
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {
+          text: 'Eliminar',
+          onPress: () => {
+            ref
+              .doc(document.id)
+              .delete()
+              .then(() => {
+                setReloadData();
+              });
+          },
+        },
+      ],
+      {cancelable: false},
+    );
+  };
+
   return (
     <View style={styles.container}>
       {showList ? (
         <ScrollView style={styles.scrollView}>
           {document.map((item, index) => (
-            <Documents key={index} document={item} />
+            <Documents
+              key={index}
+              document={item}
+              deleteDocument={deleteDocument}
+            />
           ))}
           {pastDocument.map((item, index) => (
-            <Documents key={index} document={item} />
+            <Documents
+              key={index}
+              document={item}
+              deleteDocument={deleteDocument}
+            />
           ))}
         </ScrollView>
       ) : (
-        <AddDocuments user={user} setShowList={setShowList} />
+        <AddDocuments
+          user={user}
+          setShowList={setShowList}
+          setReloadData={setReloadData}
+        />
       )}
 
       <ActionBar showList={showList} setShowList={setShowList} />
