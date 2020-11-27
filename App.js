@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, SafeAreaView, StatusBar, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-
+import Navigation from './src/navigation/Navigation';
 import Auth from './src/components/Auth';
 import ListDocuments from './src/components/ListDocuments';
 
@@ -20,12 +20,13 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <>
+      <Navigation />
+      {/*<>
         <StatusBar barStyle="light-content" />
         <SafeAreaView style={styles.background}>
           {user ? <ListDocuments user={user} /> : <Auth />}
         </SafeAreaView>
-      </>
+      </>*/}
     </NavigationContainer>
   );
 }
