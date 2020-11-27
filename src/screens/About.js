@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 
-export default function About() {
+export default function About(props) {
+  const {navigation} = props;
   return (
     <View>
       <Text>Estamos en la ABOUT</Text>
+      <Button title="Contact" onPress={() => navigation.navigate('contact')} />
     </View>
   );
 }
