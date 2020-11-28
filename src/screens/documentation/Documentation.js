@@ -16,11 +16,11 @@ export default function Documentation(props) {
       />
       <Button
         title="Registrar documentos presentados"
-        onPress={() => navigation.navigate('startturn')}
+        onPress={() => navigation.navigate('registerdocument')}
       />
       <Button
         title="Consultar documentos presentados "
-        onPress={() => navigation.navigate('finishturn')}
+        onPress={() => navigation.navigate('consultdocument')}
       />
     </View>
   );
