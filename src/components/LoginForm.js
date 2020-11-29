@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   register: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     marginBottom: 10,
   },
   error: {

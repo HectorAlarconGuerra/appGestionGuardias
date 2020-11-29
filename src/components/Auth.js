@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: '80%',
-    height: 320,
+    height: 260,
     marginTop: 20,
     marginBottom: 20,
   },
