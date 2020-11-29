@@ -1,4 +1,5 @@
 import React from 'react';
+import {Text} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Supervision from '../screens/supervision/Supervision';
 import AsignTurn from '../screens/supervision/AsignTurn';
@@ -11,13 +12,18 @@ import ConsultReport from '../screens/supervision/ConsultReport';
 
 const Stack = createStackNavigator();
 
-export default function SupervisionStack() {
+export default function SupervisionStack(props) {
+  const {navigation} = props;
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="supervision"
         component={Supervision}
-        options={{title: 'Supervisión'}}
+        options={{
+          title: 'Supervisión',
+          headerLeft: () => <Text onPress={navigation.openDrawer}>MENU</Text>,
+          headerRight: () => <Text>POWER</Text>,
+        }}
       />
       <Stack.Screen
         name="asignturn"
