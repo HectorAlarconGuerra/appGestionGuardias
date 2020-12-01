@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, SafeAreaView, StatusBar, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import Navigation from './src/navigation/Navigation';
-import Auth from './src/components/Auth';
-import ListDocuments from './src/components/ListDocuments';
+import {Provider as PaperProvider} from 'react-native-paper';
+import {Button, Card} from 'react-native-paper';
 
 import auth from '@react-native-firebase/auth';
 
@@ -19,15 +19,25 @@ export default function App() {
   if (user === undefined) return null;
 
   return (
-    <NavigationContainer>
-      <Navigation />
-      {/*<>
-        <StatusBar barStyle="light-content" />
-        <SafeAreaView style={styles.background}>
-          {user ? <ListDocuments user={user} /> : <Auth />}
-        </SafeAreaView>
-      </>*/}
-    </NavigationContainer>
+    <PaperProvider>
+      <SafeAreaView>
+        <Text>Hola Mundo</Text>
+        <Button mode="contained" onPress={() => console.log('Pressed')}>
+          Press me
+        </Button>
+        <Card>
+          <Card.Actions>
+            <Button>Cancel</Button>
+            <Button>Ok</Button>
+          </Card.Actions>
+        </Card>
+      </SafeAreaView>
+
+      {/* <NavigationContainer>
+        <Navigation />
+     
+     </NavigationContainer>*/}
+    </PaperProvider>
   );
 }
 
