@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, SafeAreaView, StatusBar, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import Navigation from './src/navigation/Navigation';
+
 import {Provider as PaperProvider} from 'react-native-paper';
 import {Button, Card} from 'react-native-paper';
+import Navigation from './src/navigation/Navigation';
 
 import auth from '@react-native-firebase/auth';
 
@@ -20,23 +21,9 @@ export default function App() {
 
   return (
     <PaperProvider>
-      <SafeAreaView>
-        <Text>Hola Mundo</Text>
-        <Button mode="contained" onPress={() => console.log('Pressed')}>
-          Press me
-        </Button>
-        <Card>
-          <Card.Actions>
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
-          </Card.Actions>
-        </Card>
-      </SafeAreaView>
-
-      {/* <NavigationContainer>
+      <NavigationContainer>
         <Navigation />
-     
-     </NavigationContainer>*/}
+      </NavigationContainer>
     </PaperProvider>
   );
 }

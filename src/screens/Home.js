@@ -5,7 +5,7 @@ export default function Home(props) {
   const {navigation} = props;
   return (
     <View>
-      <Text>Estamos en SUPERVISION</Text>
+      <Text>Estamos en Home</Text>
       <Text onPress={() => navigation.navigate('about')}>Asignar turnos</Text>
       {/* <Button title="Ir a About" onPress={() => navigation.navigate('about')} />*/}
       <Button
