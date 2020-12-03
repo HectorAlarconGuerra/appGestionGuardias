@@ -23,24 +23,14 @@ export default function DrawerContent(props) {
           onPress={() => onChangeScreen('home')}
         />
         <Drawer.Item
-          label="Supervisión"
-          active={active === 'supervisionTab'}
-          onPress={() => onChangeScreen('supervisionTab')}
+          label="Peliculas populares"
+          active={active === 'popular'}
+          onPress={() => onChangeScreen('popular')}
         />
         <Drawer.Item
-          label="Documentación"
-          active={active === 'documentation'}
-          onPress={() => onChangeScreen('documentation')}
-        />
-        <Drawer.Item
-          label="Adelantos de sueldo"
-          active={active === 'advance'}
-          onPress={() => onChangeScreen('advance')}
-        />
-        <Drawer.Item
-          label="Servicios de seguridad"
-          active={active === 'service'}
-          onPress={() => onChangeScreen('service')}
+          label="Nuevas peliculas"
+          active={active === 'news'}
+          onPress={() => onChangeScreen('news')}
         />
       </Drawer.Section>
       <Drawer.Section title="Opciones">

@@ -6,10 +6,6 @@ import Movie from '../screens/Movie';
 import News from '../screens/News';
 import Popular from '../screens/Popular';
 import Search from '../screens/Search';
-import SupervisionStack from './SupervisionStack';
-import DocumentationStack from './DocumentationStack';
-import SalaryAdvanceStack from './SalaryAdvanceStack';
-import ServiceStack from './ServiceStack';
 //import {Icon} from 'react-native-paper/lib/typescript/src/components/Avatar/Avatar';
 
 const Stack = createStackNavigator();
@@ -31,43 +27,34 @@ export default function StackNavigation(props) {
         name="home"
         component={Home}
         options={{
-          title: 'SERPROEMCAM',
+          title: 'TheMovieApp',
           headerLeft: () => buttonLeft(),
           headerRight: () => buttonRight(),
         }}
       />
       <Stack.Screen
-        name="supervisionTab"
-        component={SupervisionStack}
+        name="movie"
+        component={Movie}
         options={{
-          title: 'Supervisión',
+          title: '',
           headerLeft: () => buttonLeft(),
           headerRight: () => buttonRight(),
         }}
       />
       <Stack.Screen
-        name="documentation"
-        component={DocumentationStack}
+        name="news"
+        component={News}
         options={{
-          title: 'Documentación',
+          title: 'Nuevas Películas',
           headerLeft: () => buttonLeft(),
           headerRight: () => buttonRight(),
         }}
       />
       <Stack.Screen
-        name="advance"
-        component={SalaryAdvanceStack}
+        name="popular"
+        component={Popular}
         options={{
-          title: 'Adelantos',
-          headerLeft: () => buttonLeft(),
-          headerRight: () => buttonRight(),
-        }}
-      />
-      <Stack.Screen
-        name="service"
-        component={ServiceStack}
-        options={{
-          title: 'Servicios',
+          title: 'Peliculas Populares',
           headerLeft: () => buttonLeft(),
           headerRight: () => buttonRight(),
         }}
