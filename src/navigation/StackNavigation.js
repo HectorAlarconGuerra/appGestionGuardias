@@ -16,13 +16,26 @@ const Stack = createStackNavigator();
 
 export default function StackNavigation(props) {
   const {navigation} = props;
-  const buttonLeft = () => {
-    return <IconButton icon="menu" onPress={() => navigation.openDrawer()} />;
+
+  const buttonLeft = (screen) => {
+    switch (screen) {
+      case 'search':
+        return (
+          <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
+        );
+      default:
+        return (
+          <IconButton icon="menu" onPress={() => navigation.openDrawer()} />
+        );
+    }
   };
 
   const buttonRight = () => {
     return (
-      <IconButton icon="magnify" onPress={() => console.log('Buscador')} />
+      <IconButton
+        icon="magnify"
+        onPress={() => navigation.navigate('search')}
+      />
     );
   };
   return (
@@ -32,7 +45,7 @@ export default function StackNavigation(props) {
         component={Home}
         options={{
           title: 'SERPROEMCAM',
-          headerLeft: () => buttonLeft(),
+          headerLeft: () => buttonLeft('home'),
           headerRight: () => buttonRight(),
         }}
       />
@@ -41,7 +54,7 @@ export default function StackNavigation(props) {
         component={SupervisionStack}
         options={{
           title: 'Supervisión',
-          headerLeft: () => buttonLeft(),
+          headerLeft: () => buttonLeft('supervisionTab'),
           headerRight: () => buttonRight(),
         }}
       />
@@ -50,7 +63,7 @@ export default function StackNavigation(props) {
         component={DocumentationStack}
         options={{
           title: 'Documentación',
-          headerLeft: () => buttonLeft(),
+          headerLeft: () => buttonLeft('documentation'),
           headerRight: () => buttonRight(),
         }}
       />
@@ -59,7 +72,7 @@ export default function StackNavigation(props) {
         component={SalaryAdvanceStack}
         options={{
           title: 'Adelantos',
-          headerLeft: () => buttonLeft(),
+          headerLeft: () => buttonLeft('advance'),
           headerRight: () => buttonRight(),
         }}
       />
@@ -68,14 +81,14 @@ export default function StackNavigation(props) {
         component={ServiceStack}
         options={{
           title: 'Servicios',
-          headerLeft: () => buttonLeft(),
+          headerLeft: () => buttonLeft('service'),
           headerRight: () => buttonRight(),
         }}
       />
       <Stack.Screen
         name="search"
         component={Search}
-        options={{title: '', headerLeft: () => buttonLeft()}}
+        options={{title: '', headerLeft: () => buttonLeft('search')}}
       />
     </Stack.Navigator>
   );
