@@ -43,6 +43,6 @@ export default function ScheduleDocumentation(props) {
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#15212b',
-    height: '100%',
+    height: '85%',
   },
 });

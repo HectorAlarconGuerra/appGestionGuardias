@@ -15,7 +15,7 @@ export default function ActionBar(props) {
       </View>
       <View style={styles.viewAdd}>
         <Text style={styles.txt} onPress={() => setShowList(!showList)}>
-          {showList ? 'Nuevo documento' : 'Cancelar documento'}
+          {showList ? 'Nuevo doc' : 'Cancelar doc'}
         </Text>
       </View>
     </View>
@@ -44,7 +44,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#1ea1f2',
     borderRadius: 50,
     paddingVertical: 10,
-    paddingHorizontal: 25,
+    paddingHorizontal: 20,
+    marginVertical: 50,
+    marginHorizontal: 20,
+    marginLeft: 10,
   },
   txt: {
     fontSize: 16,
