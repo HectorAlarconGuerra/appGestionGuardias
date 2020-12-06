@@ -9,7 +9,7 @@ export default function Home(props) {
       <View style={styles.view}>
         <Image style={styles.logo} source={require('../assets/logo.png')} />
       </View>
-      {/*    <Button
+      {/*      <Button
         title="Ir a Guardias"
         onPress={() => navigation.navigate('contact', {screen: 'guard'})}
       />//Este código es cuando viajamos a un screen que está en otro stack
