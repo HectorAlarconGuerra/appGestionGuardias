@@ -1,0 +1,6 @@
+ <FlatList
+        style={{flex: 1}}
+        data={guardias}
+        keyExtractor={(item) => item.id}
+        renderItem={({item}) => <Guard {...item} />}
+      />

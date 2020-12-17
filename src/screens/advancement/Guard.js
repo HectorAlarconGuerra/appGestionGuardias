@@ -1,9 +1,27 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
+import {List} from 'react-native-paper';
+//import {View, Text, Button} from 'react-native';
 
-export default function Guard(props) {
-  const {navigation} = props;
+function Guard({id, title, complete}) {
+  async function toggleComplete() {
+    await firestore().collection('guardias').doc(id).update({
+      complete: !complete,
+    });
+  }
   return (
+    <List.Item
+      title={title}
+      onPress={() => toggleComplete()}
+      left={(props) => (
+        <List.Icon {...props} icon={complete ? 'check' : 'cancel'} />
+      )}
+    />
+  );
+}
+/*
+const {navigation} = props;
+
     <View>
       <Text>Guardias</Text>
       <Button
@@ -19,5 +37,7 @@ export default function Guard(props) {
         onPress={() => navigation.navigate('advancement')}
       />
     </View>
-  );
-}
+
+*/
+
+export default React.memo(Guard);
