@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Button, Image, StyleSheet} from 'react-native';
+import {View, Text, Button, Image, StyleSheet, ScrollView} from 'react-native';
+import {Title} from 'react-native-paper';
+import CarouselVertical from '../components/CarouselVertical';
 import {getNewsMoviesApi} from '../api/movies';
 
 export default function Home(props) {
@@ -14,17 +16,23 @@ export default function Home(props) {
   }, []);
 
   return (
-    <View>
-      <Text>Estamos en Home</Text>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.view}>
         <Image style={styles.logo} source={require('../assets/logo.png')} />
       </View>
+      {newMovies && (
+        <View style={styles.news}>
+          <Title style={styles.newsTitle}>Nuevas películas</Title>
+          <CarouselVertical data={newMovies} />
+        </View>
+      )}
+
       {/*      <Button
         title="Ir a Guardias"
         onPress={() => navigation.navigate('contact', {screen: 'guard'})}
       />//Este código es cuando viajamos a un screen que está en otro stack
 */}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -38,5 +46,14 @@ const styles = StyleSheet.create({
     height: 390,
     marginTop: 20,
     marginBottom: 20,
+  },
+  news: {
+    marginVertical: 10,
+  },
+  newsTitle: {
+    marginBottom: 15,
+    marginHorizontal: 20,
+    fontWeight: 'bold',
+    fontSize: 22,
   },
 });
