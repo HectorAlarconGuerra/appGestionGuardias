@@ -48,6 +48,7 @@ export default function App() {
           theme={
             theme === 'dark' ? DarkThemeNavigation : DefaultThemeNavigation
           }>
+            <Text>Ingresar el rol de susario</Text>
           <Navigation />
         </NavigationContainer>
       </PaperProvider>
